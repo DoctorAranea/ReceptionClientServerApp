@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace ReceptionClientServerApp.Pages
 {
     /// <summary>
-    /// Interaction logic for HotelroomsPage.xaml
+    /// Interaction logic for ClientsPage.xaml
     /// </summary>
-    public partial class HotelroomsPage : Page
+    public partial class ClientsPage : Page
     {
-        public HotelroomsPage()
+        public ClientsPage()
         {
             InitializeComponent();
             DataContext = this;
-            Hotelrooms.ItemsSource = SourceCore.corpusReception.Hotelrooms.ToList();
+            Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
         }
     }
 }

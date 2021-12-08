@@ -19,10 +19,10 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
             <Button Content="Текущие состояния" Click="ShowHotelroomStatesPage" Margin="3"/>
             <Button Content="Номера" Click="ShowHotelroomsPage" Margin="3"/>
-            <!--<Button Content="Персонал" Click="ShowStaffPage" Margin="3"/>
+            <Button Content="Персонал" Click="ShowStaffPage" Margin="3"/>
             <Button Content="Люди" Click="ShowClientsPage" Margin="3"/>
             <Button Content="Категории" Click="ShowRoomCategoriesPage" Margin="3"/>
-            <Button Content="Виды состояний" Click="ShowReservationsPage" Margin="3"/>-->
+            <!--<Button Content="Виды состояний" Click="ShowReservationsPage" Margin="3"/>-->
         </StackPanel>
         <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom"/>
         

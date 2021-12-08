@@ -23,6 +23,8 @@ namespace ReceptionClientServerApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            
         }
 
         private void ShowHotelroomStatesPage(object sender, RoutedEventArgs e)
@@ -33,6 +35,17 @@ namespace ReceptionClientServerApp
         private void ShowHotelroomsPage(object sender, RoutedEventArgs e)
         {
             ReceptionFrame.Navigate(new Pages.HotelroomsPage());
+        }
+
+        private void ShowStaffPage(object sender, RoutedEventArgs e)
+        {
+            ReceptionFrame.Navigate(new Pages.StaffPage());
+        }
+
+        private void ShowClientsPage(object sender, RoutedEventArgs e)
+        {
+            ReceptionFrame.Navigate(new Pages.ClientsPage());
+
         }
     }
 }

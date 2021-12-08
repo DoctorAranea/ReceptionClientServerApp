@@ -1,0 +1,166 @@
+﻿<Page x:Class="ReceptionClientServerApp.Pages.RoomCategoriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ReceptionClientServerApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoomCategories">
+
+    <Grid>
+        <DataGrid x:Name="RoomCategories" Background="#ffecc2" AutoGenerateColumns="False">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить"/>
+                    <MenuItem Header="Изменить"/>
+                    <MenuItem Header="Удалить"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" MinWidth="100" x:Name="Templ">
+                    <DataGridTemplateColumn.Header>
+                        Название
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Количество комнат
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding countofrooms}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="100">
+                    <DataGridTemplateColumn.Header>
+                        Стоимость за ночь
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding pricefornight}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Одиночные кровати
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding countsinglebed}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Двойные кровати
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding countdoublebed}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Уборные
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding countwc}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Ванная
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="bathroom" Content="{Binding withbathroom}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Душ
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="shower" Content="{Binding withshower}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Холодильник
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="fridge" Content="{Binding withfridge}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Диван
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="sofa" Content="{Binding withsofa}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Телевизор
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="tv" Content="{Binding withtv}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Телефон
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="telephone" Content="{Binding withtelephone}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" MinWidth="60">
+                    <DataGridTemplateColumn.Header>
+                        Мини-бар
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label x:Name="minibar" Content="{Binding withminibar}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
