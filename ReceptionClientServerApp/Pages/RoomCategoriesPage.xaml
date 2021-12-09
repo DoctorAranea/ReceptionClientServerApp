@@ -9,7 +9,7 @@
       Title="RoomCategories">
 
     <Grid>
-        <DataGrid x:Name="RoomCategories" Background="#ffecc2" AutoGenerateColumns="False">
+        <DataGrid x:Name="RoomCategories" Background="#fffaf0" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>
@@ -29,17 +29,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
-                    <DataGridTemplateColumn.Header>
-                        Количество комнат
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding countofrooms}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
                 <DataGridTemplateColumn Width="*" MinWidth="100">
                     <DataGridTemplateColumn.Header>
                         Стоимость за ночь
@@ -50,8 +39,19 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Width="*" MinWidth="30">
+                    <DataGridTemplateColumn.Header>
+                        Количество комнат
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding countofrooms}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Одиночные кровати
                     </DataGridTemplateColumn.Header>
@@ -62,7 +62,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Двойные кровати
                     </DataGridTemplateColumn.Header>
@@ -73,7 +73,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Уборные
                     </DataGridTemplateColumn.Header>
@@ -83,8 +83,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Ванная
                     </DataGridTemplateColumn.Header>
@@ -94,8 +94,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Душ
                     </DataGridTemplateColumn.Header>
@@ -106,7 +106,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Холодильник
                     </DataGridTemplateColumn.Header>
@@ -117,7 +117,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Диван
                     </DataGridTemplateColumn.Header>
@@ -128,7 +128,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Телевизор
                     </DataGridTemplateColumn.Header>
@@ -139,7 +139,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Телефон
                     </DataGridTemplateColumn.Header>
@@ -150,7 +150,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="60">
+                <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Мини-бар
                     </DataGridTemplateColumn.Header>
