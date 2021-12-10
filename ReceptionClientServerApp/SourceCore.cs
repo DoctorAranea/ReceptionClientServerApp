@@ -9,6 +9,6 @@ namespace ReceptionClientServerApp
 {
     class SourceCore
     {
-        public static CorpusReceptionEntities corpusReception = new CorpusReceptionEntities();
+        public static CorpusReceptionEntities1 corpusReception = new CorpusReceptionEntities1();
     }
 }

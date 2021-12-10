@@ -4,15 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9c0d9d1e45f44c1392c111c999d9e886" Name="Diagram1">
-        <EntityTypeShape EntityType="CorpusReceptionModel.Clients" Width="1.5" PointX="2.875" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Hotelrooms" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Reservations" Width="1.5" PointX="10" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Room_Categories" Width="1.5" PointX="10" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Room_States" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Staff" Width="1.5" PointX="2.875" PointY="5.875" IsExpanded="true" />
+      <Diagram DiagramId="c811d88bb5294e569a8638a5f7a2ffa3" Name="Diagram1">
+        <EntityTypeShape EntityType="CorpusReceptionModel.Clients" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Existence" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Hotelrooms" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Reservations" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Room_Categories" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Room_States" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.Staff" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Clients" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Staff_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence1" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence2" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence3" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence4" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence5" ManuallyRouted="false" />
+        <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence6" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Hotelrooms_Reservations" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Hotelrooms_Room_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Hotelrooms" ManuallyRouted="false" />

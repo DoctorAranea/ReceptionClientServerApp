@@ -9,7 +9,7 @@
       Title="RoomCategories">
 
     <Grid>
-        <DataGrid x:Name="RoomCategories" Background="#fffaf0" AutoGenerateColumns="False">
+        <DataGrid x:Name="RoomCategories" Background="#FBF5EF" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>
@@ -90,7 +90,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="bathroom" Content="{Binding withbathroom}"/>
+                            <Label x:Name="bathroom" Content="{Binding Existence.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -101,7 +101,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="shower" Content="{Binding withshower}"/>
+                            <Label x:Name="shower" Content="{Binding Existence1.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -112,7 +112,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="fridge" Content="{Binding withfridge}"/>
+                            <Label x:Name="fridge" Content="{Binding Existence2.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -123,7 +123,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="sofa" Content="{Binding withsofa}"/>
+                            <Label x:Name="sofa" Content="{Binding Existence3.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -134,7 +134,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="tv" Content="{Binding withtv}"/>
+                            <Label x:Name="tv" Content="{Binding Existence4.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -145,7 +145,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="telephone" Content="{Binding withtelephone}"/>
+                            <Label x:Name="telephone" Content="{Binding Existence5.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -156,7 +156,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="minibar" Content="{Binding withminibar}"/>
+                            <Label x:Name="minibar" Content="{Binding Existence6.value}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

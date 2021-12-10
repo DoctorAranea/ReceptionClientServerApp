@@ -13,10 +13,10 @@ namespace ReceptionClientServerApp.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CorpusReceptionEntities : DbContext
+    public partial class CorpusReceptionEntities1 : DbContext
     {
-        public CorpusReceptionEntities()
-            : base("name=CorpusReceptionEntities")
+        public CorpusReceptionEntities1()
+            : base("name=CorpusReceptionEntities1")
         {
         }
     
@@ -26,6 +26,7 @@ namespace ReceptionClientServerApp.DataBase
         }
     
         public virtual DbSet<Clients> Clients { get; set; }
+        public virtual DbSet<Existence> Existence { get; set; }
         public virtual DbSet<Hotelrooms> Hotelrooms { get; set; }
         public virtual DbSet<Reservations> Reservations { get; set; }
         public virtual DbSet<Room_Categories> Room_Categories { get; set; }

@@ -9,7 +9,7 @@
       Title="Staff">
 
     <Grid>
-        <DataGrid x:Name="Staff" Background="#fffaf0" AutoGenerateColumns="False">
+        <DataGrid x:Name="Staff" Background="#FBF5EF" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>
@@ -25,9 +25,9 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Label  Content="{Binding Clients.lastname}"/>
-                                <Label  Content="{Binding Clients.name}"/>
-                                <Label  Content="{Binding Clients.middlename}"/>
+                                <Label Content="{Binding Clients.lastname}"/>
+                                <Label Content="{Binding Clients.name}"/>
+                                <Label Content="{Binding Clients.middlename}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

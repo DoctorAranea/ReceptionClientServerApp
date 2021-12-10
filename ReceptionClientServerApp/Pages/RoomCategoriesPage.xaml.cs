@@ -24,7 +24,12 @@ namespace ReceptionClientServerApp.Pages
         {
             InitializeComponent();
             DataContext = this;
+            
             RoomCategories.ItemsSource = SourceCore.corpusReception.Room_Categories.ToList();
+
+            int i = 0;
+
+
             /*
             List<string> with = new List<string>();
             with.Add("bathroom");
@@ -41,7 +46,6 @@ namespace ReceptionClientServerApp.Pages
                     item = "Есть";
             }*/
         }
-
 
     }
 }

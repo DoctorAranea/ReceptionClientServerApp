@@ -64,28 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\ClientsPage.xaml.cs">
-      <DependentUpon>ClientsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ReservationsPage.xaml.cs">
-      <DependentUpon>ReservationsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\RoomCategoriesPage.xaml.cs">
-      <DependentUpon>RoomCategoriesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\StaffPage.xaml.cs">
-      <DependentUpon>StaffPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SourceCore.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DataBase\Clients.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Existence.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Hotelrooms.cs">
@@ -117,6 +99,27 @@
     </Compile>
     <Compile Include="DataBase\Staff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientsPage.xaml.cs">
+      <DependentUpon>ClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReservationsPage.xaml.cs">
+      <DependentUpon>ReservationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoomCategoriesPage.xaml.cs">
+      <DependentUpon>RoomCategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StaffPage.xaml.cs">
+      <DependentUpon>StaffPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SourceCore.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -188,20 +191,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="WhiteCrowLogo2.png" />
+    <Resource Include="WhiteCrowLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataBase\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DataBase\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="WhiteCrowLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

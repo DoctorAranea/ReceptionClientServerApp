@@ -9,7 +9,7 @@
       Title="Clients">
 
     <Grid>
-        <DataGrid x:Name="Clients" Background="#fffaf0" AutoGenerateColumns="False">
+        <DataGrid x:Name="Clients" Background="#FBF5EF" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>

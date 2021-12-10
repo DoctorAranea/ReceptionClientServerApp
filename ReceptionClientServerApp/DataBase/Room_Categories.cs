@@ -29,14 +29,21 @@ namespace ReceptionClientServerApp.DataBase
         public Nullable<short> countbabybed { get; set; }
         public Nullable<short> countextrabed { get; set; }
         public Nullable<short> countwc { get; set; }
-        public Nullable<short> withbathroom { get; set; }
-        public Nullable<short> withshower { get; set; }
-        public Nullable<short> withfridge { get; set; }
-        public Nullable<short> withsofa { get; set; }
-        public Nullable<short> withtv { get; set; }
-        public Nullable<short> withtelephone { get; set; }
-        public Nullable<short> withminibar { get; set; }
+        public Nullable<int> withbathroom { get; set; }
+        public Nullable<int> withshower { get; set; }
+        public Nullable<int> withfridge { get; set; }
+        public Nullable<int> withsofa { get; set; }
+        public Nullable<int> withtv { get; set; }
+        public Nullable<int> withtelephone { get; set; }
+        public Nullable<int> withminibar { get; set; }
     
+        public virtual Existence Existence { get; set; }
+        public virtual Existence Existence1 { get; set; }
+        public virtual Existence Existence2 { get; set; }
+        public virtual Existence Existence3 { get; set; }
+        public virtual Existence Existence4 { get; set; }
+        public virtual Existence Existence5 { get; set; }
+        public virtual Existence Existence6 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hotelrooms> Hotelrooms { get; set; }
     }

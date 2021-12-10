@@ -9,7 +9,7 @@
       Title="Hotelrooms">
 
     <Grid>
-        <DataGrid x:Name="Hotelrooms" Background="#fffaf0" AutoGenerateColumns="False">
+        <DataGrid x:Name="Hotelrooms" Background="#FBF5EF" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>
