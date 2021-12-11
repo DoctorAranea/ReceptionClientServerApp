@@ -6,10 +6,32 @@
       xmlns:local="clr-namespace:ReceptionClientServerApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HotelroomStatesPage">
+      Title="HotelroomStates">
 
-    <Grid>
-        <DataGrid x:Name="HotelroomStates" Background="#FBF5EF" AutoGenerateColumns="False">
+    <Grid Background="#272744">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Top" Margin="10 0 0 0" x:Name="TableName" Content="История броней" Foreground="White" FontWeight="Bold" FontSize="24"/>
+        <StackPanel x:Name="ChangeTableButtons" Grid.Row="1" Orientation="Horizontal" Grid.Column="1" Height="30">
+            <Button Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90"/>
+            <Button Background="#F2D3AB" Content="Копировать" Margin="5 0 0 0" Width="90"/>
+            <Button Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90"/>
+            <Button Background="#F2D3AB" Content="Удалить" Margin="5 0 0 0" Width="90"/>
+        </StackPanel>
+        <Rectangle Fill="#171728" Height="3" VerticalAlignment="Bottom"/>
+
+        <DataGrid CanUserAddRows="False" x:Name="HotelroomStates" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2"  AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#C69FA5"/>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#C69FA5" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить"/>

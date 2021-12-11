@@ -103,6 +103,9 @@
     <Compile Include="Pages\ClientsPage.xaml.cs">
       <DependentUpon>ClientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ExistencePage.xaml.cs">
+      <DependentUpon>ExistencePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ReservationsPage.xaml.cs">
       <DependentUpon>ReservationsPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\ClientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExistencePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
