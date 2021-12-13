@@ -32,5 +32,6 @@ namespace ReceptionClientServerApp.DataBase
         public virtual DbSet<Room_Categories> Room_Categories { get; set; }
         public virtual DbSet<Room_States> Room_States { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<UsersData> UsersData { get; set; }
     }
 }

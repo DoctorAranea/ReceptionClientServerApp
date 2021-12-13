@@ -25,6 +25,7 @@
         <AssociationConnector Association="CorpusReceptionModel.FK_Hotelrooms_Room_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Hotelrooms" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Staff" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.UsersData" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

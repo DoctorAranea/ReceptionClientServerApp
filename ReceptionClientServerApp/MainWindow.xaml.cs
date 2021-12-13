@@ -107,5 +107,35 @@ namespace ReceptionClientServerApp
             Menu.Visibility = Visibility.Hidden;
             AdditionalTables.Visibility = Visibility.Visible;
         }
+        private void AdminModeOn()
+        {
+            UsersDataButton.Visibility = Visibility.Visible;
+            AdminModeONButton.Visibility = Visibility.Hidden;
+            AdminModeOFFButton.Visibility = Visibility.Visible;
+        }
+
+        private void AuthorizationAdminClickButton(object sender, RoutedEventArgs e)
+        {
+            var win = new Windows.AdminAuthorizationWindow();
+            if (win.ShowDialog() == true)
+            {
+                AdminModeOn();
+            }
+        }
+
+        private void AdminModeOFF(object sender, RoutedEventArgs e)
+        {
+            UsersDataButton.Visibility = Visibility.Hidden;
+            AdminModeONButton.Visibility = Visibility.Visible;
+            AdminModeOFFButton.Visibility = Visibility.Hidden;
+            ReceptionFrame.Content = null;
+            RemoveTableButtons();
+        }
+
+        private void ShowUsersDataPage(object sender, RoutedEventArgs e)
+        {
+            ReceptionFrame.Navigate(new Pages.UsersDataPage());
+            AddTableButtons();
+        }
     }
 }

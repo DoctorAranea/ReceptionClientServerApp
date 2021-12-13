@@ -100,6 +100,9 @@
     <Compile Include="DataBase\Staff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\UsersData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ClientsPage.xaml.cs">
       <DependentUpon>ClientsPage.xaml</DependentUpon>
     </Compile>
@@ -115,7 +118,16 @@
     <Compile Include="Pages\StaffPage.xaml.cs">
       <DependentUpon>StaffPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UsersDataPage.xaml.cs">
+      <DependentUpon>UsersDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SourceCore.cs" />
+    <Compile Include="Windows\AdminAuthorizationWindow.xaml.cs">
+      <DependentUpon>AdminAuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserAuthorizationWindow.xaml.cs">
+      <DependentUpon>UserAuthorizationWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,6 +165,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StaffPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UsersDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdminAuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserAuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

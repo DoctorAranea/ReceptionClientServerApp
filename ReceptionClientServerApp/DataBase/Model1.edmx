@@ -81,6 +81,14 @@
           <Property Name="clientid" Type="int" Nullable="false" />
           <Property Name="workphonenum" Type="varchar" MaxLength="11" />
         </EntityType>
+        <EntityType Name="UsersData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="25" />
+          <Property Name="password" Type="nvarchar" MaxLength="25" />
+        </EntityType>
         <Association Name="FK_Hotelrooms_Reservations">
           <End Role="Reservations" Type="Self.Reservations" Multiplicity="1" />
           <End Role="Hotelrooms" Type="Self.Hotelrooms" Multiplicity="*" />
@@ -245,6 +253,7 @@
           <EntitySet Name="Room Categories" EntityType="Self.Room Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room States" EntityType="Self.Room States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersData" EntityType="Self.UsersData" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Hotelrooms_Reservations" Association="Self.FK_Hotelrooms_Reservations">
             <End Role="Reservations" EntitySet="Reservations" />
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
@@ -620,7 +629,16 @@
             <End Role="Staff" EntitySet="Staff" />
             <End Role="Room_States" EntitySet="Room_States" />
           </AssociationSet>
+          <EntitySet Name="UsersData" EntityType="CorpusReceptionModel.UsersData" />
         </EntityContainer>
+        <EntityType Name="UsersData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -707,6 +725,15 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="clientid" ColumnName="clientid" />
                 <ScalarProperty Name="workphonenum" ColumnName="workphonenum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersData">
+            <EntityTypeMapping TypeName="CorpusReceptionModel.UsersData">
+              <MappingFragment StoreEntitySet="UsersData">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
