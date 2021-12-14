@@ -20,11 +20,46 @@ namespace ReceptionClientServerApp.Pages
     /// </summary>
     public partial class ClientsPage : Page
     {
+        private DataBase.CorpusReceptionEntities1 db;
         public ClientsPage()
         {
             InitializeComponent();
             DataContext = this;
             Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
+            DataChangeColumn.Width = new GridLength(0);
+            db = new DataBase.CorpusReceptionEntities1();
+        }
+
+        private void ShowDataChanger(object sender, RoutedEventArgs e)
+        {
+            if (DataChangeColumn.Width == new GridLength(0))
+                DataChangeColumn.Width = new GridLength(300);
+            else
+                DataChangeColumn.Width = new GridLength(0);
+        }
+
+        private void CloseDataChanger(object sender, RoutedEventArgs e)
+        {
+            DataChangeColumn.Width = new GridLength(0);
+        }
+
+        private void ShowDataAdder(object sender, RoutedEventArgs e)
+        {
+            if (DataChangeColumn.Width == new GridLength(0))
+            {
+                DataChangeColumn.Width = new GridLength(300);
+                AddButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DataChangeColumn.Width = new GridLength(0);
+                AddButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void AddData(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -26,6 +26,7 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="153"/>
@@ -69,7 +70,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Visibility="Hidden" x:Name="AdminModeOFFButton" Content="Выключить режим администратора" Click="AdminModeOFF" Style="{StaticResource MainMenuButton}" Height="20" Width="200" Margin="2 1 2 2" HorizontalAlignment="Right" Grid.Row="0"/>
-            <Button x:Name="AdminModeONButton" Content="Войти как администратор" Click="AuthorizationAdminClickButton" Style="{StaticResource MainMenuButton}" Height="20" Width="150" Margin="2 1 2 2" HorizontalAlignment="Right" Grid.Row="0"/>
+            <Button x:Name="AdminModeONButton" Content="Режим администратора" Click="AuthorizationAdminClickButton" Style="{StaticResource MainMenuButton}" Height="20" Width="140" Margin="2 1 2 2" HorizontalAlignment="Right" Grid.Row="0"/>
             <Frame Grid.Row="1" x:Name="ClearFrame" Background="#FBF5EF" Visibility="Hidden"/>
             <Image Grid.Row="1" x:Name="LogoFrame" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="250" Source="WhiteCrowLogo2.png"/>
         </Grid>

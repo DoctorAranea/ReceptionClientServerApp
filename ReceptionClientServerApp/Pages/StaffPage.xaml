@@ -16,56 +16,98 @@
         </Grid.RowDefinitions>
         <Label VerticalAlignment="Top" Margin="10 0 0 0" x:Name="TableName" Content="Персонал" Foreground="White" FontWeight="Bold" FontSize="24"/>
         <StackPanel x:Name="ChangeTableButtons" Grid.Row="1" Orientation="Horizontal" Grid.Column="1" Height="30">
-            <Button Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90"/>
+            <Button Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90" Click="ShowDataAdder"/>
             <Button Background="#F2D3AB" Content="Копировать" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90"/>
+            <Button Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90" Click="ShowDataChanger"/>
             <Button Background="#F2D3AB" Content="Удалить" Margin="5 0 0 0" Width="90"/>
         </StackPanel>
         <Rectangle Fill="#171728" Height="3" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="DataChangeColumn" Width="300"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid CanUserAddRows="False" x:Name="Staff" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2" AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#C69FA5"/>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#C69FA5" />
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить"/>
+                        <MenuItem Header="Изменить"/>
+                        <MenuItem Header="Удалить"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*" MinWidth="300">
+                        <DataGridTemplateColumn.Header>
+                            ФИО
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Clients.lastname}"/>
+                                    <Label Content="{Binding Clients.name}"/>
+                                    <Label Content="{Binding Clients.middlename}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-        <DataGrid CanUserAddRows="False" x:Name="Staff" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2" AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
-            <DataGrid.Resources>
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#C69FA5"/>
-                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#C69FA5" />
-                    <Setter Property="BorderBrush" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </Style>
-            </DataGrid.Resources>
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Добавить"/>
-                    <MenuItem Header="Изменить"/>
-                    <MenuItem Header="Удалить"/>
-                </ContextMenu>
-            </DataGrid.ContextMenu>
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" MinWidth="300">
-                    <DataGridTemplateColumn.Header>
-                        ФИО
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Clients.lastname}"/>
-                                <Label Content="{Binding Clients.name}"/>
-                                <Label Content="{Binding Clients.middlename}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Width="*" MinWidth="100">
-                    <DataGridTemplateColumn.Header>
-                        Рабочий номер
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding workphonenum}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                    <DataGridTemplateColumn Width="*" MinWidth="100">
+                        <DataGridTemplateColumn.Header>
+                            Рабочий номер
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding workphonenum}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <Label Margin="25 0 25 0" Content="Фамилия:" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBox x:Name="Lastname" Height="30" Margin="25 0 25 0" FontSize="18"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Margin="25 0 25 0" Content="Имя:" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBox x:Name="Name" Height="30" Margin="25 0 25 0" FontSize="18"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <Label Margin="25 0 25 0" Content="Отчество:" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBox x:Name="Middlename" Height="30" Margin="25 0 25 0" FontSize="18"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <Label Margin="25 0 25 0" Content="Номер телефона:" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBox x:Name="Phonenum" Height="30" Margin="25 0 25 0" FontSize="18"/>
+                    </StackPanel>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="AddButton" HorizontalAlignment="Left" Grid.Column="0" Margin="25 10 0 25" Width="160" Height="30" VerticalAlignment="Bottom" Content="Добавить" Background="#F2D3AB"/>
+                        <Label HorizontalAlignment="Center" Grid.Column="1" Foreground="#686868" Content="|" FontSize="18" FontWeight="Bold" VerticalAlignment="Bottom" Margin="0 0 0 25"/>
+                        <Button HorizontalAlignment="Right" Grid.Column="2" Click="CloseDataChanger" Margin="0 10 25 25" Width="68" Height="30" VerticalAlignment="Bottom" Content="Отмена" Background="#F2D3AB"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

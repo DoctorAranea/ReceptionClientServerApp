@@ -25,6 +25,34 @@ namespace ReceptionClientServerApp.Pages
             InitializeComponent();
             DataContext = this;
             Staff.ItemsSource = SourceCore.corpusReception.Staff.ToList();
+            DataChangeColumn.Width = new GridLength(0);
+        }
+
+        private void ShowDataChanger(object sender, RoutedEventArgs e)
+        {
+            if (DataChangeColumn.Width == new GridLength(0))
+                DataChangeColumn.Width = new GridLength(300);
+            else
+                DataChangeColumn.Width = new GridLength(0);
+        }
+
+        private void CloseDataChanger(object sender, RoutedEventArgs e)
+        {
+            DataChangeColumn.Width = new GridLength(0);
+        }
+
+        private void ShowDataAdder(object sender, RoutedEventArgs e)
+        {
+            if (DataChangeColumn.Width == new GridLength(0))
+            {
+                DataChangeColumn.Width = new GridLength(300);
+                AddButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DataChangeColumn.Width = new GridLength(0);
+                AddButton.Visibility = Visibility.Hidden;
+            }   
         }
     }
 }

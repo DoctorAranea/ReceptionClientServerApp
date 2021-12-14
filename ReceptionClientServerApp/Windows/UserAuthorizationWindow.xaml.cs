@@ -33,6 +33,7 @@ namespace ReceptionClientServerApp.Windows
                     "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Close();
             }
+            LoginText.Focus();
         }
 
         private void FocusOnPass(object sender, KeyEventArgs e)
@@ -74,6 +75,13 @@ namespace ReceptionClientServerApp.Windows
             {
                 MessageBox.Show("Неверный логин или пароль!");
             }
+        }
+
+        private void ShowRegistrationWindow(object sender, RoutedEventArgs e)
+        {
+            UserRegistrationWindow window = new UserRegistrationWindow();
+            window.Show();
+            Close();
         }
     }
 }
