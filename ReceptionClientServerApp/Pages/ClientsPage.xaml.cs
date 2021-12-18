@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace ReceptionClientServerApp.Pages
     public partial class ClientsPage : Page
     {
         private DataBase.CorpusReceptionEntities1 db;
+        private int id;
         public ClientsPage()
         {
             InitializeComponent();
@@ -28,10 +30,29 @@ namespace ReceptionClientServerApp.Pages
             Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
             DataChangeColumn.Width = new GridLength(0);
             db = new DataBase.CorpusReceptionEntities1();
+        }  
+        private void ClearDataChanger()
+        {
+            Lastname.Text = "";
+            Name.Text = "";
+            Middlename.Text = "";
+            Phonenum.Text = "";
+            Address.Text = "";
+            Birthday.Text = "";
         }
 
-        private void ShowDataChanger(object sender, RoutedEventArgs e)
+        private void ChangeEnabledButtons()
         {
+            btn1.IsEnabled = !btn1.IsEnabled;
+            btn2.IsEnabled = !btn2.IsEnabled;
+            btn3.IsEnabled = !btn3.IsEnabled;
+            btn4.IsEnabled = !btn4.IsEnabled;
+            Clients.IsEnabled = !Clients.IsEnabled;
+        }
+
+        private void ShowDataChanger()
+        {
+            ChangeEnabledButtons();
             if (DataChangeColumn.Width == new GridLength(0))
                 DataChangeColumn.Width = new GridLength(300);
             else
@@ -41,25 +62,149 @@ namespace ReceptionClientServerApp.Pages
         private void CloseDataChanger(object sender, RoutedEventArgs e)
         {
             DataChangeColumn.Width = new GridLength(0);
+            ChangeEnabledButtons();
         }
 
         private void ShowDataAdder(object sender, RoutedEventArgs e)
         {
-            if (DataChangeColumn.Width == new GridLength(0))
-            {
-                DataChangeColumn.Width = new GridLength(300);
+            ShowDataChanger();
+            ClearDataChanger();
+            if (DataChangeColumn.Width == new GridLength(300))
                 AddButton.Visibility = Visibility.Visible;
-            }
             else
-            {
-                DataChangeColumn.Width = new GridLength(0);
                 AddButton.Visibility = Visibility.Hidden;
-            }
         }
 
         private void AddData(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                DataBase.Clients Client = new DataBase.Clients();
+                Client.lastname = Lastname.Text;
+                Client.name = Name.Text;
+                Client.middlename = Middlename.Text;
+                Client.phonenum = Phonenum.Text;
+                Client.address = Address.Text;
+                Client.birthday = DateTime.Parse(Birthday.Text);
+                db.Clients.Add(Client);
+                db.SaveChanges();
+                MessageBox.Show("Запись успешно добавлена!");
+                Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
+                CloseDataChanger(sender, e);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка загрузки записи!");
+            }
+            ChangeEnabledButtons();
+        }
+
+        private void DeleteData(object sender, RoutedEventArgs e)
+        {
+            string message = "";
+
+            if (Clients.SelectedItems.Count > 1)
+                message = "Вы действительно хотите удалить выбранные записи?";
+            else
+                message = "Вы действительно хотите удалить выбранную запись?";
+
+            if (MessageBox.Show(message, "Удаление записей", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    foreach (var item in Clients.SelectedItems)
+                    {
+                        SourceCore.corpusReception.Clients.Remove((DataBase.Clients)item);
+                    }
+
+                    SourceCore.corpusReception.SaveChanges();
+                    Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка удаления записи!");
+                }
+            }
+        }
+
+        private void ShowDataCopier(object sender, RoutedEventArgs e)
+        {
+            ClearDataChanger();
+            if (Clients.SelectedItems.Count == 1)
+            {
+                DataBase.Clients bufClient = (DataBase.Clients)Clients.SelectedItem;
+                ShowDataAdder(sender, e);
+                id = bufClient.id;
+                Lastname.Text = bufClient.lastname;
+                Name.Text = bufClient.name;
+                Middlename.Text = bufClient.middlename;
+                Phonenum.Text = bufClient.phonenum;
+                Address.Text = bufClient.address;
+                string bufBirthday = bufClient.birthday.ToString();
+                var split = bufBirthday.Split(' ');
+                Birthday.Text = split[0];
+            }
+            else
+            {
+                MessageBox.Show("Выберите одну запись!");
+            }
+        }
+
+        private void ShowDataChanger(object sender, RoutedEventArgs e)
+        {
+            ClearDataChanger();
+            if (Clients.SelectedItems.Count == 1)
+            {
+                ShowDataCopier(sender, e);
+                UpdateButton.Visibility = Visibility.Visible;
+                AddButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("Выберите одну запись!");
+            }
+        }
+
+        
+        private void UpdateData(object sender, RoutedEventArgs e)
+        { 
+            try
+            {
+                var Client = new DataBase.Clients();
+                string connectionString = "Server=server03; Database=CorpusReception; Trusted_Connection=True;";
+                SqlConnection connect = new SqlConnection(connectionString);
+                connect.Open();
+                string sql = string.Format("" +
+                    "Update Clients Set " +
+                    "lastname = '{0}'," +
+                    "name = '{1}'," +
+                    "middlename = '{2}'," +
+                    "phonenum = '{3}'," +
+                    "address = '{4}'," +
+                    "birthday = '{5}'" +
+                    "Where id = '{6}'",
+                    Lastname.Text, Name.Text, Middlename.Text,
+                    Phonenum.Text, Address.Text, DateTime.Parse(Birthday.Text), id);
+                using (SqlCommand cmd = new SqlCommand(sql, connect))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Client.lastname = Lastname.Text;
+                //Client.name = Name.Text;
+                //Client.middlename = Middlename.Text;
+                //Client.phonenum = Phonenum.Text;
+                //Client.address = Address.Text;
+                //Client.birthday = DateTime.Parse(Birthday.Text);
+                db.SaveChanges();
+                MessageBox.Show("Запись успешно изменена!");
+                Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
+                CloseDataChanger(sender, e);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка изменения записи!");
+            }
         }
     }
 }
