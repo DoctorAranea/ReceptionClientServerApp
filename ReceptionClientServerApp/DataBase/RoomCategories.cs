@@ -12,10 +12,10 @@ namespace ReceptionClientServerApp.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Room_Categories
+    public partial class RoomCategories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room_Categories()
+        public RoomCategories()
         {
             this.Hotelrooms = new HashSet<Hotelrooms>();
         }
@@ -26,7 +26,6 @@ namespace ReceptionClientServerApp.DataBase
         public Nullable<decimal> pricefornight { get; set; }
         public Nullable<short> countsinglebed { get; set; }
         public Nullable<short> countdoublebed { get; set; }
-        public Nullable<short> countbabybed { get; set; }
         public Nullable<short> countextrabed { get; set; }
         public Nullable<short> countwc { get; set; }
         public Nullable<int> withbathroom { get; set; }

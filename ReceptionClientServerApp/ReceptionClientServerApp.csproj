@@ -91,10 +91,10 @@
     <Compile Include="DataBase\Reservations.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Room_Categories.cs">
+    <Compile Include="DataBase\RoomCategories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Room_States.cs">
+    <Compile Include="DataBase\RoomStates.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Staff.cs">

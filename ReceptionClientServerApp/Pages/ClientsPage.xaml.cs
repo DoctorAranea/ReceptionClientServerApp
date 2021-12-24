@@ -22,7 +22,7 @@ namespace ReceptionClientServerApp.Pages
     public partial class ClientsPage : Page
     {
         private DataBase.CorpusReceptionEntities1 db;
-        private int id;
+        
         public ClientsPage()
         {
             InitializeComponent();
@@ -41,18 +41,27 @@ namespace ReceptionClientServerApp.Pages
             Birthday.Text = "";
         }
 
-        private void ChangeEnabledButtons()
+        private void EnableButtons()
         {
-            btn1.IsEnabled = !btn1.IsEnabled;
-            btn2.IsEnabled = !btn2.IsEnabled;
-            btn3.IsEnabled = !btn3.IsEnabled;
-            btn4.IsEnabled = !btn4.IsEnabled;
-            Clients.IsEnabled = !Clients.IsEnabled;
+            btn1.IsEnabled = true;
+            btn2.IsEnabled = true;
+            btn3.IsEnabled = true;
+            btn4.IsEnabled = true;
+            Clients.IsEnabled = true;
+        }
+
+        private void DisableButtons()
+        {
+            btn1.IsEnabled = false;
+            btn2.IsEnabled = false;
+            btn3.IsEnabled = false;
+            btn4.IsEnabled = false;
+            Clients.IsEnabled = false;
         }
 
         private void ShowDataChanger()
         {
-            ChangeEnabledButtons();
+            DisableButtons();
             if (DataChangeColumn.Width == new GridLength(0))
                 DataChangeColumn.Width = new GridLength(300);
             else
@@ -62,7 +71,7 @@ namespace ReceptionClientServerApp.Pages
         private void CloseDataChanger(object sender, RoutedEventArgs e)
         {
             DataChangeColumn.Width = new GridLength(0);
-            ChangeEnabledButtons();
+            EnableButtons();
         }
 
         private void ShowDataAdder(object sender, RoutedEventArgs e)
@@ -96,7 +105,6 @@ namespace ReceptionClientServerApp.Pages
             {
                 MessageBox.Show("Ошибка загрузки записи!");
             }
-            ChangeEnabledButtons();
         }
 
         private void DeleteData(object sender, RoutedEventArgs e)
@@ -119,6 +127,7 @@ namespace ReceptionClientServerApp.Pages
 
                     SourceCore.corpusReception.SaveChanges();
                     Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
+                    MessageBox.Show("Выбранные записи успешно удалены!");
                 }
                 catch
                 {
@@ -134,7 +143,6 @@ namespace ReceptionClientServerApp.Pages
             {
                 DataBase.Clients bufClient = (DataBase.Clients)Clients.SelectedItem;
                 ShowDataAdder(sender, e);
-                id = bufClient.id;
                 Lastname.Text = bufClient.lastname;
                 Name.Text = bufClient.name;
                 Middlename.Text = bufClient.middlename;
@@ -170,7 +178,8 @@ namespace ReceptionClientServerApp.Pages
         { 
             try
             {
-                var Client = new DataBase.Clients();
+                var Client = (DataBase.Clients)Clients.SelectedItem;
+
                 string connectionString = "Server=server03; Database=CorpusReception; Trusted_Connection=True;";
                 SqlConnection connect = new SqlConnection(connectionString);
                 connect.Open();
@@ -184,12 +193,12 @@ namespace ReceptionClientServerApp.Pages
                     "birthday = '{5}'" +
                     "Where id = '{6}'",
                     Lastname.Text, Name.Text, Middlename.Text,
-                    Phonenum.Text, Address.Text, DateTime.Parse(Birthday.Text), id);
+                    Phonenum.Text, Address.Text, DateTime.Parse(Birthday.Text), Client.id);
                 using (SqlCommand cmd = new SqlCommand(sql, connect))
                 {
                     cmd.ExecuteNonQuery();
                 }
-
+                connect.Close();
                 //Client.lastname = Lastname.Text;
                 //Client.name = Name.Text;
                 //Client.middlename = Middlename.Text;
@@ -197,6 +206,7 @@ namespace ReceptionClientServerApp.Pages
                 //Client.address = Address.Text;
                 //Client.birthday = DateTime.Parse(Birthday.Text);
                 db.SaveChanges();
+                SourceCore.corpusReception = new DataBase.CorpusReceptionEntities1();
                 MessageBox.Show("Запись успешно изменена!");
                 Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
                 CloseDataChanger(sender, e);

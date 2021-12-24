@@ -17,31 +17,31 @@ namespace ReceptionClientServerApp.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Existence()
         {
-            this.Room_Categories = new HashSet<Room_Categories>();
-            this.Room_Categories1 = new HashSet<Room_Categories>();
-            this.Room_Categories2 = new HashSet<Room_Categories>();
-            this.Room_Categories3 = new HashSet<Room_Categories>();
-            this.Room_Categories4 = new HashSet<Room_Categories>();
-            this.Room_Categories5 = new HashSet<Room_Categories>();
-            this.Room_Categories6 = new HashSet<Room_Categories>();
+            this.RoomCategories = new HashSet<RoomCategories>();
+            this.RoomCategories1 = new HashSet<RoomCategories>();
+            this.RoomCategories2 = new HashSet<RoomCategories>();
+            this.RoomCategories3 = new HashSet<RoomCategories>();
+            this.RoomCategories4 = new HashSet<RoomCategories>();
+            this.RoomCategories5 = new HashSet<RoomCategories>();
+            this.RoomCategories6 = new HashSet<RoomCategories>();
         }
     
         public int id { get; set; }
         public string value { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories1 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories2 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories3 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories3 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories4 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories4 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories5 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories5 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_Categories> Room_Categories6 { get; set; }
+        public virtual ICollection<RoomCategories> RoomCategories6 { get; set; }
     }
 }

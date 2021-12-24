@@ -4,14 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c811d88bb5294e569a8638a5f7a2ffa3" Name="Diagram1">
+      <Diagram DiagramId="f9118241414546c491527ce7dacaf456" Name="Diagram1">
         <EntityTypeShape EntityType="CorpusReceptionModel.Clients" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CorpusReceptionModel.Existence" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CorpusReceptionModel.Hotelrooms" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CorpusReceptionModel.Reservations" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Room_Categories" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.Room_States" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.RoomCategories" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.RoomStates" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="CorpusReceptionModel.Staff" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CorpusReceptionModel.UsersData" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Clients" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Staff_Clients" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_Categories_Existence" ManuallyRouted="false" />
@@ -25,7 +26,6 @@
         <AssociationConnector Association="CorpusReceptionModel.FK_Hotelrooms_Room_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Hotelrooms" ManuallyRouted="false" />
         <AssociationConnector Association="CorpusReceptionModel.FK_Room_States_Staff" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CorpusReceptionModel.UsersData" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

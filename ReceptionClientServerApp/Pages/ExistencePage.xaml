@@ -16,10 +16,7 @@
         </Grid.RowDefinitions>
         <Label VerticalAlignment="Top" Margin="10 0 0 0" x:Name="TableName" Content="Наличия" Foreground="White" FontWeight="Bold" FontSize="24"/>
         <StackPanel x:Name="ChangeTableButtons" Grid.Row="1" Orientation="Horizontal" Grid.Column="1" Height="30">
-            <Button Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Копировать" Margin="5 0 0 0" Width="90"/>
             <Button Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Удалить" Margin="5 0 0 0" Width="90"/>
         </StackPanel>
         <Rectangle Fill="#171728" Height="3" VerticalAlignment="Bottom"/>
 

@@ -17,7 +17,7 @@ namespace ReceptionClientServerApp.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hotelrooms()
         {
-            this.Room_States = new HashSet<Room_States>();
+            this.RoomStates = new HashSet<RoomStates>();
         }
     
         public int id { get; set; }
@@ -26,8 +26,8 @@ namespace ReceptionClientServerApp.DataBase
         public int reservationid { get; set; }
     
         public virtual Reservations Reservations { get; set; }
-        public virtual Room_Categories Room_Categories { get; set; }
+        public virtual RoomCategories RoomCategories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_States> Room_States { get; set; }
+        public virtual ICollection<RoomStates> RoomStates { get; set; }
     }
 }

@@ -16,14 +16,19 @@
         </Grid.RowDefinitions>
         <Label VerticalAlignment="Top" Margin="10 0 0 0" x:Name="TableName" Content="Категории номеров" Foreground="White" FontWeight="Bold" FontSize="24"/>
         <StackPanel x:Name="ChangeTableButtons" Grid.Row="1" Orientation="Horizontal" Grid.Column="1" Height="30">
-            <Button Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Копировать" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90"/>
-            <Button Background="#F2D3AB" Content="Удалить" Margin="5 0 0 0" Width="90"/>
+            <Button x:Name="btn1" Background="#F2D3AB" Content="Добавить" Margin="5 0 0 0" Width="90" Click="ShowDataAdder"/>
+            <Button x:Name="btn2" Background="#F2D3AB" Content="Копировать" Margin="5 0 0 0" Width="90" Click="ShowDataCopier"/>
+            <Button x:Name="btn3" Background="#F2D3AB" Content="Изменить" Margin="5 0 0 0" Width="90" Click="ShowDataChanger"/>
+            <Button x:Name="btn4" Background="#F2D3AB" Content="Удалить" Margin="5 0 0 0" Width="90" Click="DeleteData"/>
         </StackPanel>
         <Rectangle Fill="#171728" Height="3" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="DataChangeColumn" Width="300"/>
+            </Grid.ColumnDefinitions>
 
-        <DataGrid CanUserAddRows="False" x:Name="RoomCategories" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2" AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
+            <DataGrid CanUserAddRows="False" x:Name="RoomCategories" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2" AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#C69FA5"/>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -95,7 +100,18 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" MinWidth="30">
+                    <DataGridTemplateColumn Width="*" MinWidth="30">
+                        <DataGridTemplateColumn.Header>
+                            Доп. кровати
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding countextrabed}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*" MinWidth="30">
                     <DataGridTemplateColumn.Header>
                         Уборные
                     </DataGridTemplateColumn.Header>
@@ -184,5 +200,117 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+               
+
+            <Grid Grid.Column="1">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <Label Margin="25 0 25 0" Content="Название:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                            <TextBox x:Name="Name" Height="20" Margin="25 0 25 0" FontSize="14"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1" Margin="25 0 25 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel  Grid.Column="0">
+                                <Label Content="Цена:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="PriceForNight" Height="20" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel  Grid.Column="1">
+                                <Label Margin="10 0 0 0" Content="Комнат:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="CountOfRooms" Height="20" Margin="10 0 0 0" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel  Grid.Column="2">
+                                <Label Margin="10 0 0 0" Content="Уборных:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="CountWC" Height="20" Margin="10 0 0 0" FontSize="14"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="25 0 25 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Label Content="Одномест." Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="CountSingleBed" Height="20" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel  Grid.Column="1">
+                                <Label Margin="10 0 0 0" Content="Двухмест.:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="CountDoubleBed" Height="20" Margin="10 0 0 0" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel  Grid.Column="2">
+                                <Label Margin="10 0 0 0" Content="Дополн.:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <TextBox x:Name="CountExtraBed" Height="20" Margin="10 0 0 0" FontSize="14"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="25 0 25 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Label Content="Ванная:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithBathroom"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Label Content="Душевая:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithShower"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <Label Content="Холод.:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithFridge"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" >
+                                <Label Content="Диван:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithSofa"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" >
+                                <Label Content="Телевизор:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithTV"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="2" >
+                                <Label Content="Телефон:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithTelephone"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" >
+                                <Label Content="Мини-бар:" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                <CheckBox x:Name="WithMinibar"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Visibility="Hidden" Click="UpdateData" x:Name="UpdateButton" HorizontalAlignment="Left" Grid.Column="0" Margin="25 10 0 25" Width="160" Height="30" VerticalAlignment="Bottom" Content="Изменить" Background="#F2D3AB"/>
+                        <Button Click="AddData" x:Name="AddButton" HorizontalAlignment="Left" Grid.Column="0" Margin="25 10 0 25" Width="160" Height="30" VerticalAlignment="Bottom" Content="Добавить" Background="#F2D3AB"/>
+                        <Label HorizontalAlignment="Center" Grid.Column="1" Foreground="#686868" Content="|" FontSize="18" FontWeight="Bold" VerticalAlignment="Bottom" Margin="0 0 0 25"/>
+                        <Button HorizontalAlignment="Right" Grid.Column="2" Click="CloseDataChanger" Margin="0 10 25 25" Width="68" Height="30" VerticalAlignment="Bottom" Content="Отмена" Background="#F2D3AB"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

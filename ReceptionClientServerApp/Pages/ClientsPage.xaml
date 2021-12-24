@@ -27,8 +27,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition x:Name="DataChangeColumn" Width="300"/>
             </Grid.ColumnDefinitions>
-            
-            
+
             <DataGrid CanUserAddRows="False" x:Name="Clients" Background="#FBF5EF" AutoGenerateColumns="False" Grid.Row="2" AlternatingRowBackground="#FFF2D3AB" RowBackground="#FFFBF5EF">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#C69FA5"/>

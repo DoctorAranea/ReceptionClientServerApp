@@ -17,7 +17,7 @@ namespace ReceptionClientServerApp.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Clients()
         {
-            this.Room_States = new HashSet<Room_States>();
+            this.RoomStates = new HashSet<RoomStates>();
             this.Staff = new HashSet<Staff>();
         }
     
@@ -30,7 +30,7 @@ namespace ReceptionClientServerApp.DataBase
         public Nullable<System.DateTime> birthday { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_States> Room_States { get; set; }
+        public virtual ICollection<RoomStates> RoomStates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Staff> Staff { get; set; }
     }

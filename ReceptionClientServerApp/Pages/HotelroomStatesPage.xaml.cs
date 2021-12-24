@@ -24,7 +24,7 @@ namespace ReceptionClientServerApp.Pages
         {
             InitializeComponent();
             DataContext = this;
-            HotelroomStates.ItemsSource = SourceCore.corpusReception.Room_States.ToList();
+            HotelroomStates.ItemsSource = SourceCore.corpusReception.RoomStates.ToList();
         }
     }
 }

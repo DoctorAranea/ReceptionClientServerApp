@@ -17,7 +17,7 @@ namespace ReceptionClientServerApp.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Staff()
         {
-            this.Room_States = new HashSet<Room_States>();
+            this.RoomStates = new HashSet<RoomStates>();
         }
     
         public int id { get; set; }
@@ -26,6 +26,6 @@ namespace ReceptionClientServerApp.DataBase
     
         public virtual Clients Clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_States> Room_States { get; set; }
+        public virtual ICollection<RoomStates> RoomStates { get; set; }
     }
 }

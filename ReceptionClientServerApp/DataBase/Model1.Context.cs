@@ -29,8 +29,8 @@ namespace ReceptionClientServerApp.DataBase
         public virtual DbSet<Existence> Existence { get; set; }
         public virtual DbSet<Hotelrooms> Hotelrooms { get; set; }
         public virtual DbSet<Reservations> Reservations { get; set; }
-        public virtual DbSet<Room_Categories> Room_Categories { get; set; }
-        public virtual DbSet<Room_States> Room_States { get; set; }
+        public virtual DbSet<RoomCategories> RoomCategories { get; set; }
+        public virtual DbSet<RoomStates> RoomStates { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<UsersData> UsersData { get; set; }
     }

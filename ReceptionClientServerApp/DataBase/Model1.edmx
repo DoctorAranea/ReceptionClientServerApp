@@ -40,7 +40,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Room Categories">
+        <EntityType Name="RoomCategories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -50,7 +50,6 @@
           <Property Name="pricefornight" Type="decimal" Precision="15" Scale="2" />
           <Property Name="countsinglebed" Type="smallint" />
           <Property Name="countdoublebed" Type="smallint" />
-          <Property Name="countbabybed" Type="smallint" />
           <Property Name="countextrabed" Type="smallint" />
           <Property Name="countwc" Type="smallint" />
           <Property Name="withbathroom" Type="int" />
@@ -61,7 +60,7 @@
           <Property Name="withtelephone" Type="int" />
           <Property Name="withminibar" Type="int" />
         </EntityType>
-        <EntityType Name="Room States">
+        <EntityType Name="RoomStates">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -102,10 +101,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Hotelrooms_Room Categories">
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="1" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="1" />
           <End Role="Hotelrooms" Type="Self.Hotelrooms" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Room Categories">
+            <Principal Role="RoomCategories">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Hotelrooms">
@@ -115,120 +114,120 @@
         </Association>
         <Association Name="FK_Room Categories_Existence">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withbathroom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence1">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withshower" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence2">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withfridge" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence3">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withsofa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence4">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withtv" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence5">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withtelephone" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room Categories_Existence6">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room Categories" Type="Self.Room Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withminibar" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room States_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="Room States" Type="Self.Room States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="clientid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room States_Hotelrooms">
           <End Role="Hotelrooms" Type="Self.Hotelrooms" Multiplicity="1" />
-          <End Role="Room States" Type="Self.Room States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotelrooms">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="hotelroomid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room States_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Room States" Type="Self.Room States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="staffid" />
             </Dependent>
           </ReferentialConstraint>
@@ -250,8 +249,8 @@
           <EntitySet Name="Existence" EntityType="Self.Existence" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hotelrooms" EntityType="Self.Hotelrooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Room Categories" EntityType="Self.Room Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Room States" EntityType="Self.Room States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomCategories" EntityType="Self.RoomCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomStates" EntityType="Self.RoomStates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersData" EntityType="Self.UsersData" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Hotelrooms_Reservations" Association="Self.FK_Hotelrooms_Reservations">
@@ -259,48 +258,48 @@
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotelrooms_Room Categories" Association="Self.FK_Hotelrooms_Room Categories">
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence" Association="Self.FK_Room Categories_Existence">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence1" Association="Self.FK_Room Categories_Existence1">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence2" Association="Self.FK_Room Categories_Existence2">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence3" Association="Self.FK_Room Categories_Existence3">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence4" Association="Self.FK_Room Categories_Existence4">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence5" Association="Self.FK_Room Categories_Existence5">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room Categories_Existence6" Association="Self.FK_Room Categories_Existence6">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room Categories" EntitySet="Room Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room States_Clients" Association="Self.FK_Room States_Clients">
             <End Role="Clients" EntitySet="Clients" />
-            <End Role="Room States" EntitySet="Room States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
           <AssociationSet Name="FK_Room States_Hotelrooms" Association="Self.FK_Room States_Hotelrooms">
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
-            <End Role="Room States" EntitySet="Room States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
           <AssociationSet Name="FK_Room States_Staff" Association="Self.FK_Room States_Staff">
             <End Role="Staff" EntitySet="Staff" />
-            <End Role="Room States" EntitySet="Room States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Clients" Association="Self.FK_Staff_Clients">
             <End Role="Clients" EntitySet="Clients" />
@@ -322,7 +321,7 @@
           <Property Name="phonenum" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="birthday" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Room_States" Relationship="Self.FK_Room_States_Clients" FromRole="Clients" ToRole="Room_States" />
+          <NavigationProperty Name="RoomStates" Relationship="Self.FK_Room_States_Clients" FromRole="Clients" ToRole="RoomStates" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Clients" FromRole="Clients" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Existence">
@@ -331,13 +330,13 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Room_Categories" Relationship="Self.FK_Room_Categories_Existence" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories1" Relationship="Self.FK_Room_Categories_Existence1" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories2" Relationship="Self.FK_Room_Categories_Existence2" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories3" Relationship="Self.FK_Room_Categories_Existence3" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories4" Relationship="Self.FK_Room_Categories_Existence4" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories5" Relationship="Self.FK_Room_Categories_Existence5" FromRole="Existence" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_Categories6" Relationship="Self.FK_Room_Categories_Existence6" FromRole="Existence" ToRole="Room_Categories" />
+          <NavigationProperty Name="RoomCategories" Relationship="Self.FK_Room_Categories_Existence" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories1" Relationship="Self.FK_Room_Categories_Existence1" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories2" Relationship="Self.FK_Room_Categories_Existence2" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories3" Relationship="Self.FK_Room_Categories_Existence3" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories4" Relationship="Self.FK_Room_Categories_Existence4" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories5" Relationship="Self.FK_Room_Categories_Existence5" FromRole="Existence" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomCategories6" Relationship="Self.FK_Room_Categories_Existence6" FromRole="Existence" ToRole="RoomCategories" />
         </EntityType>
         <EntityType Name="Hotelrooms">
           <Key>
@@ -348,8 +347,8 @@
           <Property Name="categoryid" Type="Int32" Nullable="false" />
           <Property Name="reservationid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="Self.FK_Hotelrooms_Reservations" FromRole="Hotelrooms" ToRole="Reservations" />
-          <NavigationProperty Name="Room_Categories" Relationship="Self.FK_Hotelrooms_Room_Categories" FromRole="Hotelrooms" ToRole="Room_Categories" />
-          <NavigationProperty Name="Room_States" Relationship="Self.FK_Room_States_Hotelrooms" FromRole="Hotelrooms" ToRole="Room_States" />
+          <NavigationProperty Name="RoomCategories" Relationship="Self.FK_Hotelrooms_Room_Categories" FromRole="Hotelrooms" ToRole="RoomCategories" />
+          <NavigationProperty Name="RoomStates" Relationship="Self.FK_Room_States_Hotelrooms" FromRole="Hotelrooms" ToRole="RoomStates" />
         </EntityType>
         <EntityType Name="Reservations">
           <Key>
@@ -359,7 +358,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hotelrooms" Relationship="Self.FK_Hotelrooms_Reservations" FromRole="Reservations" ToRole="Hotelrooms" />
         </EntityType>
-        <EntityType Name="Room_Categories">
+        <EntityType Name="RoomCategories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -369,7 +368,6 @@
           <Property Name="pricefornight" Type="Decimal" Precision="15" Scale="2" />
           <Property Name="countsinglebed" Type="Int16" />
           <Property Name="countdoublebed" Type="Int16" />
-          <Property Name="countbabybed" Type="Int16" />
           <Property Name="countextrabed" Type="Int16" />
           <Property Name="countwc" Type="Int16" />
           <Property Name="withbathroom" Type="Int32" />
@@ -379,16 +377,16 @@
           <Property Name="withtv" Type="Int32" />
           <Property Name="withtelephone" Type="Int32" />
           <Property Name="withminibar" Type="Int32" />
-          <NavigationProperty Name="Existence" Relationship="Self.FK_Room_Categories_Existence" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence1" Relationship="Self.FK_Room_Categories_Existence1" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence2" Relationship="Self.FK_Room_Categories_Existence2" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence3" Relationship="Self.FK_Room_Categories_Existence3" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence4" Relationship="Self.FK_Room_Categories_Existence4" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence5" Relationship="Self.FK_Room_Categories_Existence5" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Existence6" Relationship="Self.FK_Room_Categories_Existence6" FromRole="Room_Categories" ToRole="Existence" />
-          <NavigationProperty Name="Hotelrooms" Relationship="Self.FK_Hotelrooms_Room_Categories" FromRole="Room_Categories" ToRole="Hotelrooms" />
+          <NavigationProperty Name="Existence" Relationship="Self.FK_Room_Categories_Existence" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence1" Relationship="Self.FK_Room_Categories_Existence1" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence2" Relationship="Self.FK_Room_Categories_Existence2" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence3" Relationship="Self.FK_Room_Categories_Existence3" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence4" Relationship="Self.FK_Room_Categories_Existence4" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence5" Relationship="Self.FK_Room_Categories_Existence5" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Existence6" Relationship="Self.FK_Room_Categories_Existence6" FromRole="RoomCategories" ToRole="Existence" />
+          <NavigationProperty Name="Hotelrooms" Relationship="Self.FK_Hotelrooms_Room_Categories" FromRole="RoomCategories" ToRole="Hotelrooms" />
         </EntityType>
-        <EntityType Name="Room_States">
+        <EntityType Name="RoomStates">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -399,9 +397,9 @@
           <Property Name="countofpeople" Type="Int16" />
           <Property Name="datein" Type="DateTime" Precision="0" />
           <Property Name="dateout" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK_Room_States_Clients" FromRole="Room_States" ToRole="Clients" />
-          <NavigationProperty Name="Hotelrooms" Relationship="Self.FK_Room_States_Hotelrooms" FromRole="Room_States" ToRole="Hotelrooms" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK_Room_States_Staff" FromRole="Room_States" ToRole="Staff" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Room_States_Clients" FromRole="RoomStates" ToRole="Clients" />
+          <NavigationProperty Name="Hotelrooms" Relationship="Self.FK_Room_States_Hotelrooms" FromRole="RoomStates" ToRole="Hotelrooms" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Room_States_Staff" FromRole="RoomStates" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -411,16 +409,24 @@
           <Property Name="clientid" Type="Int32" Nullable="false" />
           <Property Name="workphonenum" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Staff_Clients" FromRole="Staff" ToRole="Clients" />
-          <NavigationProperty Name="Room_States" Relationship="Self.FK_Room_States_Staff" FromRole="Staff" ToRole="Room_States" />
+          <NavigationProperty Name="RoomStates" Relationship="Self.FK_Room_States_Staff" FromRole="Staff" ToRole="RoomStates" />
+        </EntityType>
+        <EntityType Name="UsersData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Room_States_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="Room_States" Type="Self.Room_States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="clientid" />
             </Dependent>
           </ReferentialConstraint>
@@ -439,84 +445,84 @@
         </Association>
         <Association Name="FK_Room_Categories_Existence">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withbathroom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence1">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withshower" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence2">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withfridge" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence3">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withsofa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence4">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withtv" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence5">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withtelephone" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_Categories_Existence6">
           <End Role="Existence" Type="Self.Existence" Multiplicity="0..1" />
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="*" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Existence">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_Categories">
+            <Dependent Role="RoomCategories">
               <PropertyRef Name="withminibar" />
             </Dependent>
           </ReferentialConstraint>
@@ -534,10 +540,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Hotelrooms_Room_Categories">
-          <End Role="Room_Categories" Type="Self.Room_Categories" Multiplicity="1" />
+          <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="1" />
           <End Role="Hotelrooms" Type="Self.Hotelrooms" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Room_Categories">
+            <Principal Role="RoomCategories">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Hotelrooms">
@@ -547,24 +553,24 @@
         </Association>
         <Association Name="FK_Room_States_Hotelrooms">
           <End Role="Hotelrooms" Type="Self.Hotelrooms" Multiplicity="1" />
-          <End Role="Room_States" Type="Self.Room_States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotelrooms">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="hotelroomid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Room_States_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Room_States" Type="Self.Room_States" Multiplicity="*" />
+          <End Role="RoomStates" Type="Self.RoomStates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Room_States">
+            <Dependent Role="RoomStates">
               <PropertyRef Name="staffid" />
             </Dependent>
           </ReferentialConstraint>
@@ -574,12 +580,13 @@
           <EntitySet Name="Existence" EntityType="Self.Existence" />
           <EntitySet Name="Hotelrooms" EntityType="Self.Hotelrooms" />
           <EntitySet Name="Reservations" EntityType="Self.Reservations" />
-          <EntitySet Name="Room_Categories" EntityType="Self.Room_Categories" />
-          <EntitySet Name="Room_States" EntityType="Self.Room_States" />
+          <EntitySet Name="RoomCategories" EntityType="Self.RoomCategories" />
+          <EntitySet Name="RoomStates" EntityType="Self.RoomStates" />
           <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="UsersData" EntityType="Self.UsersData" />
           <AssociationSet Name="FK_Room_States_Clients" Association="Self.FK_Room_States_Clients">
             <End Role="Clients" EntitySet="Clients" />
-            <End Role="Room_States" EntitySet="Room_States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Clients" Association="Self.FK_Staff_Clients">
             <End Role="Clients" EntitySet="Clients" />
@@ -587,58 +594,49 @@
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence" Association="Self.FK_Room_Categories_Existence">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence1" Association="Self.FK_Room_Categories_Existence1">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence2" Association="Self.FK_Room_Categories_Existence2">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence3" Association="Self.FK_Room_Categories_Existence3">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence4" Association="Self.FK_Room_Categories_Existence4">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence5" Association="Self.FK_Room_Categories_Existence5">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Categories_Existence6" Association="Self.FK_Room_Categories_Existence6">
             <End Role="Existence" EntitySet="Existence" />
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotelrooms_Reservations" Association="Self.FK_Hotelrooms_Reservations">
             <End Role="Reservations" EntitySet="Reservations" />
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotelrooms_Room_Categories" Association="Self.FK_Hotelrooms_Room_Categories">
-            <End Role="Room_Categories" EntitySet="Room_Categories" />
+            <End Role="RoomCategories" EntitySet="RoomCategories" />
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_States_Hotelrooms" Association="Self.FK_Room_States_Hotelrooms">
             <End Role="Hotelrooms" EntitySet="Hotelrooms" />
-            <End Role="Room_States" EntitySet="Room_States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_States_Staff" Association="Self.FK_Room_States_Staff">
             <End Role="Staff" EntitySet="Staff" />
-            <End Role="Room_States" EntitySet="Room_States" />
+            <End Role="RoomStates" EntitySet="RoomStates" />
           </AssociationSet>
-          <EntitySet Name="UsersData" EntityType="CorpusReceptionModel.UsersData" />
         </EntityContainer>
-        <EntityType Name="UsersData">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -684,16 +682,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Room_Categories">
-            <EntityTypeMapping TypeName="CorpusReceptionModel.Room_Categories">
-              <MappingFragment StoreEntitySet="Room Categories">
+          <EntitySetMapping Name="RoomCategories">
+            <EntityTypeMapping TypeName="CorpusReceptionModel.RoomCategories">
+              <MappingFragment StoreEntitySet="RoomCategories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="countofrooms" ColumnName="countofrooms" />
                 <ScalarProperty Name="pricefornight" ColumnName="pricefornight" />
                 <ScalarProperty Name="countsinglebed" ColumnName="countsinglebed" />
                 <ScalarProperty Name="countdoublebed" ColumnName="countdoublebed" />
-                <ScalarProperty Name="countbabybed" ColumnName="countbabybed" />
                 <ScalarProperty Name="countextrabed" ColumnName="countextrabed" />
                 <ScalarProperty Name="countwc" ColumnName="countwc" />
                 <ScalarProperty Name="withbathroom" ColumnName="withbathroom" />
@@ -706,9 +703,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Room_States">
-            <EntityTypeMapping TypeName="CorpusReceptionModel.Room_States">
-              <MappingFragment StoreEntitySet="Room States">
+          <EntitySetMapping Name="RoomStates">
+            <EntityTypeMapping TypeName="CorpusReceptionModel.RoomStates">
+              <MappingFragment StoreEntitySet="RoomStates">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hotelroomid" ColumnName="hotelroomid" />
                 <ScalarProperty Name="staffid" ColumnName="staffid" />
@@ -731,9 +728,9 @@
           <EntitySetMapping Name="UsersData">
             <EntityTypeMapping TypeName="CorpusReceptionModel.UsersData">
               <MappingFragment StoreEntitySet="UsersData">
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

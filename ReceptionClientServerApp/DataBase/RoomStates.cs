@@ -12,7 +12,7 @@ namespace ReceptionClientServerApp.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Room_States
+    public partial class RoomStates
     {
         public int id { get; set; }
         public int hotelroomid { get; set; }
