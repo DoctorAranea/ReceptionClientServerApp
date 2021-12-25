@@ -22,6 +22,7 @@ namespace ReceptionClientServerApp.Pages
     public partial class ClientsPage : Page
     {
         private DataBase.CorpusReceptionEntities1 db;
+        private bool StaffAdd;
         
         public ClientsPage()
         {
@@ -29,6 +30,7 @@ namespace ReceptionClientServerApp.Pages
             DataContext = this;
             Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
             DataChangeColumn.Width = new GridLength(0);
+            StaffAdd = false;
             db = new DataBase.CorpusReceptionEntities1();
         }  
         private void ClearDataChanger()
@@ -151,6 +153,13 @@ namespace ReceptionClientServerApp.Pages
                 string bufBirthday = bufClient.birthday.ToString();
                 var split = bufBirthday.Split(' ');
                 Birthday.Text = split[0];
+                DataBase.Staff Staff = db.Staff.SingleOrDefault(S => S.clientid == bufClient.id);
+                if (Staff != null)
+                {
+                    IsStaff.IsChecked = true;
+                    ActivateStaffAdd(sender, e);
+                    WorkPhoneNum.Text = Staff.workphonenum;
+                }
             }
             else
             {
@@ -179,7 +188,6 @@ namespace ReceptionClientServerApp.Pages
             try
             {
                 var Client = (DataBase.Clients)Clients.SelectedItem;
-
                 string connectionString = "Server=server03; Database=CorpusReception; Trusted_Connection=True;";
                 SqlConnection connect = new SqlConnection(connectionString);
                 connect.Open();
@@ -206,14 +214,55 @@ namespace ReceptionClientServerApp.Pages
                 //Client.address = Address.Text;
                 //Client.birthday = DateTime.Parse(Birthday.Text);
                 db.SaveChanges();
-                SourceCore.corpusReception = new DataBase.CorpusReceptionEntities1();
+                DataBase.Staff Staff = db.Staff.SingleOrDefault(S => S.clientid == Client.id);
+                if (Staff == null)
+                {
+                    if ((bool)IsStaff.IsChecked)
+                    {
+                        DataBase.Staff newStaff = new DataBase.Staff();
+                        newStaff.clientid = Client.id;
+                        newStaff.workphonenum = WorkPhoneNum.Text;
+                        db.Staff.Add(newStaff);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    if (!(bool)IsStaff.IsChecked)
+                    {
+                        db.Staff.Remove(Staff);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        Staff.workphonenum = WorkPhoneNum.Text;
+                        db.SaveChanges();
+                    }
+                }
                 MessageBox.Show("Запись успешно изменена!");
+                SourceCore.corpusReception = new DataBase.CorpusReceptionEntities1();
                 Clients.ItemsSource = SourceCore.corpusReception.Clients.ToList();
                 CloseDataChanger(sender, e);
             }
             catch
             {
                 MessageBox.Show("Ошибка изменения записи!");
+            }
+        }
+
+        private void ActivateStaffAdd(object sender, RoutedEventArgs e)
+        {
+            if ((bool)IsStaff.IsChecked)
+            {
+                WorkPhoneNum.Visibility = Visibility.Visible;
+                WorkPhoneNumLabel.Visibility = Visibility.Visible;
+                StaffAdd = true;
+            }
+            else
+            {
+                WorkPhoneNum.Visibility = Visibility.Hidden;
+                WorkPhoneNumLabel.Visibility = Visibility.Hidden;
+                StaffAdd = false;
             }
         }
     }
