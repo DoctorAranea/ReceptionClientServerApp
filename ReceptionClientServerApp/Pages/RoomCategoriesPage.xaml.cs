@@ -93,6 +93,12 @@ namespace ReceptionClientServerApp.Pages
 
         private void AddData(object sender, RoutedEventArgs e)
         {
+            DataBase.RoomCategories bufCategory = db.RoomCategories.SingleOrDefault(C => C.name.ToString() == Name.Text);
+            if (bufCategory != null)
+            {
+                MessageBox.Show("Данная категория уже записана в базе!");
+                return;
+            }
             try
             {
                 DataBase.RoomCategories RoomCategory = new DataBase.RoomCategories();
@@ -192,6 +198,7 @@ namespace ReceptionClientServerApp.Pages
                 catch
                 {
                     MessageBox.Show("Ошибка удаления записи!");
+                    SourceCore.corpusReception = new DataBase.CorpusReceptionEntities1();
                 }
             }
         }

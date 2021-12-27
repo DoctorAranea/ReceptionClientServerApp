@@ -97,15 +97,15 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" Margin="25 0 25 0">
                             <Label  Content="Номер:" Foreground="White" FontWeight="Bold" FontSize="12"/>
-                            <TextBox x:Name="Name" Height="20" HorizontalAlignment="Left" FontSize="14" Width="120"/>
+                            <TextBox x:Name="HotelroomNumber" Height="20" HorizontalAlignment="Left" FontSize="14" Width="120"/>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Margin="25 0 25 0">
                             <Label  Content="Категория:" Foreground="White" FontWeight="Bold" FontSize="12"/>
-                            <ComboBox x:Name="RoomCategory" Height="20" HorizontalAlignment="Left" FontSize="14" Width="250"/>
+                            <ComboBox x:Name="RoomCategory" Height="20" HorizontalAlignment="Left" FontSize="11" Width="250"/>
                         </StackPanel>
                         <StackPanel Grid.Row="2" Margin="25 0 25 0">
                             <Label  Content="Состояние:" Foreground="White" FontWeight="Bold" FontSize="12"/>
-                            <ComboBox x:Name="Existence" Height="20" HorizontalAlignment="Left" FontSize="14" Width="250"/>
+                            <ComboBox x:Name="Reservations" Height="20" HorizontalAlignment="Left" FontSize="11" Width="250"/>
                         </StackPanel>
                         <!--<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 25 0">
                             <StackPanel>

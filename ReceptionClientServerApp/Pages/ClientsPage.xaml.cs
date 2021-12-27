@@ -41,6 +41,10 @@ namespace ReceptionClientServerApp.Pages
             Phonenum.Text = "";
             Address.Text = "";
             Birthday.Text = "";
+            IsStaff.IsChecked = false;
+            WorkPhoneNum.Visibility = Visibility.Hidden;
+            WorkPhoneNumLabel.Visibility = Visibility.Hidden;
+            StaffAdd = false;
         }
 
         private void EnableButtons()
@@ -134,6 +138,7 @@ namespace ReceptionClientServerApp.Pages
                 catch
                 {
                     MessageBox.Show("Ошибка удаления записи!");
+                    SourceCore.corpusReception = new DataBase.CorpusReceptionEntities1();
                 }
             }
         }
@@ -207,12 +212,6 @@ namespace ReceptionClientServerApp.Pages
                     cmd.ExecuteNonQuery();
                 }
                 connect.Close();
-                //Client.lastname = Lastname.Text;
-                //Client.name = Name.Text;
-                //Client.middlename = Middlename.Text;
-                //Client.phonenum = Phonenum.Text;
-                //Client.address = Address.Text;
-                //Client.birthday = DateTime.Parse(Birthday.Text);
                 db.SaveChanges();
                 DataBase.Staff Staff = db.Staff.SingleOrDefault(S => S.clientid == Client.id);
                 if (Staff == null)

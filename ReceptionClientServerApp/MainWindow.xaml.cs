@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
+using System.Data.SqlClient;
 
 namespace ReceptionClientServerApp
 {
@@ -20,11 +22,104 @@ namespace ReceptionClientServerApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Timer checkDateTimer;
+        private DataBase.CorpusReceptionEntities1 db;
+
         public MainWindow()
         {
             InitializeComponent();
+            db = new DataBase.CorpusReceptionEntities1();
             DataContext = this;
             RemoveTableButtons();
+            checkDateTimer = new Timer();
+            checkDateTimer.Interval = 1000;
+            checkDateTimer.Enabled = true;
+            checkDateTimer.Elapsed += new ElapsedEventHandler(CheckDate);
+            checkDateTimer.AutoReset = true;
+            checkDateTimer.Enabled = true;
+        }
+
+        private void CheckDate(object sender, ElapsedEventArgs e)
+        {
+            string connectionString = "Server=server03; Database=CorpusReception; Trusted_Connection=True;";
+            SqlConnection connect = new SqlConnection(connectionString);
+            List<string> roomCategories = new List<string>();
+            using (connect)
+            {
+                connect.Open();
+                try
+                {
+                    string sql = $"select * from Hotelrooms";
+                    SqlCommand cmd = new SqlCommand(sql, connect);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<int> ids = new List<int>();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            ids.Add(int.Parse(reader.GetValue(0).ToString()));
+                        }
+                        reader.Close();
+                        foreach (var item in ids)
+                        {
+                            DataBase.Hotelrooms room = db.Hotelrooms.SingleOrDefault(H => H.id == item);
+                            DataBase.RoomStates roomState = db.RoomStates.LastOrDefault(R => R.hotelroomid == item);
+                            DateTime datein = (DateTime)roomState.datein;
+                            DateTime dateout = (DateTime)roomState.dateout;
+                            if (dateout.Date < DateTime.Today.Date)
+                            {
+                                room.reservationid = 1;
+                            }
+                            else
+                            {
+                                if (dateout.Date > DateTime.Today.Date && datein.Date > DateTime.Today.Date)
+                                {
+                                    room.reservationid = 3;
+                                }
+                                else
+                                {
+                                    room.reservationid = 2;
+                                }
+                            }
+                            db.SaveChanges();
+                        }
+                        //while (reader.Read())
+                        //{
+                        //    int id = int.Parse(reader.GetValue(1).ToString());
+                        //    DataBase.Hotelrooms room = db.Hotelrooms.SingleOrDefault(H => H.id == id);
+                        //    if (room != null)
+                        //    {
+                        //        MessageBox.Show($"{room.num}");
+                        //    }
+                        //    //DataBase.RoomStates roomState = db.RoomStates.LastOrDefault(R => R.hotelroomid == id);
+                        //    //DateTime datein = (DateTime)roomState.datein;
+                        //    //DateTime dateout = (DateTime)roomState.dateout;
+                        //    //if (dateout.Date < DateTime.Today.Date)
+                        //    //{
+                        //    //    room.reservationid = 1;
+                        //    //}
+                        //    //else
+                        //    //{
+                        //    //    if (dateout.Date > DateTime.Today.Date && datein.Date > DateTime.Today.Date)
+                        //    //    {
+                        //    //        room.reservationid = 3;
+                        //    //    }
+                        //    //    else
+                        //    //    {
+                        //    //        room.reservationid = 2;
+                        //    //    }
+                        //    //}
+                        //    //db.SaveChanges();
+                        //}
+                        //reader.Close();
+                    }
+                }
+                catch
+                {
+
+                }
+                connect.Close();
+            }
         }
 
         public void AddTableButtons()
